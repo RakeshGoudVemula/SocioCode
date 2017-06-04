@@ -8,19 +8,17 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Entity
 @Component
+@Entity
 @Table
 public class ForumComment {
-
 	@Id
 	private int forumCommentId;
 	private int forumId;
 	private String forumComment;
-	private Date commentDate;
+	private Date forumCommentDate;
 	private int userId;
 	private String username;
-
 
 	public int getForumCommentId() {
 		return forumCommentId;
@@ -46,12 +44,12 @@ public class ForumComment {
 		this.forumComment = forumComment;
 	}
 
-	public Date getCommentDate() {
-		return commentDate;
+	public Date getForumCommentDate() {
+		return forumCommentDate;
 	}
 
-	public void setCommentDate(Date commentDate) {
-		this.commentDate = commentDate;
+	public void setForumCommentDate(Date forumCommentDate) {
+		this.forumCommentDate = forumCommentDate;
 	}
 
 	public int getUserId() {

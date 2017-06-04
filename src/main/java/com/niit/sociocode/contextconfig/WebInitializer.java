@@ -6,8 +6,8 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new Class[] { DBConfig.class, WebConfig.class };
 	}
 
 	@Override
@@ -18,8 +18,8 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected String[] getServletMappings() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new String[] { "/" };
 	}
 
 }

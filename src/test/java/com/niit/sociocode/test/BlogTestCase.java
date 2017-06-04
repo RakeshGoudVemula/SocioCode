@@ -1,4 +1,4 @@
-package com.niit.test;
+package com.niit.sociocode.test;
 
 import static org.junit.Assert.*;
 
@@ -32,12 +32,13 @@ public class BlogTestCase {
 	
 	@Test
 	public void createBlogTestCase() {
-		blog.setBlogid(1011);
-		blog.setBlogname("Enumeration1");
-		blog.setBlogcontent("Enumeration has added in jdk 1.20 version");
-		blog.setUserid(1013);
-		blog.setLikes(12);
+		blog.setBlogId(1004);
+		blog.setBlogName("Suveen");
+		blog.setBlogContent("Java Developer");
 		blog.setCreateDate(new Date());
+		blog.setLikes(0);
+		blog.setUserId(1002);
+		blog.setStatus("NA");
 		boolean flag=blogDAO.insertBlog(blog);
 		assertEquals("createBlogTestCase",flag,true);
 		

@@ -9,50 +9,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.sociocode.dao.BlogCommentDAO;
-import com.niit.sociocode.model.Blog;
 import com.niit.sociocode.model.BlogComment;
-
 @Repository("blogCommentDAO")
 @Transactional
-public class BlogCommentDAOImpl implements BlogCommentDAO {
+public class BlogCommentDAOImpl implements BlogCommentDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
-	public BlogCommentDAOImpl(SessionFactory sessionFactory) {
+	
+	public BlogCommentDAOImpl(SessionFactory sessionFactory)
+	{
 		this.sessionFactory = sessionFactory;
 	}
-
+	
+	
 	public boolean insertBlogComment(BlogComment blogComment) {
-		try {
+		try{
 			sessionFactory.getCurrentSession().saveOrUpdate(blogComment);
-		} catch (Exception e) {
+		}
+		catch(Exception e){
 			e.printStackTrace();
 			return false;
+			
 		}
 		return true;
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public List<BlogComment> list() {
-
-		return sessionFactory.getCurrentSession().createQuery("from Blog").list();
-
+		return sessionFactory.getCurrentSession().createQuery("from BlogComment").list();
+		
 	}
 
-	public boolean deleteBlogComment(String id) {
-		try {
-			sessionFactory.getCurrentSession().delete(id);
-		} catch (Exception e) {
+	
+	public boolean deleteBlogComment(int id) {
+		try{
+			sessionFactory.getCurrentSession().delete(getBlogCommentById(id));
+		}
+		catch(Exception e){
 			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
 
-	public Blog getBlogCommentById(String id) {
-
-		return (Blog) sessionFactory.getCurrentSession().get(Blog.class, id);
+	
+	public BlogComment getBlogCommentById(int id) {
+		return (BlogComment) sessionFactory.getCurrentSession().get(BlogComment.class, id);
 	}
 
 }

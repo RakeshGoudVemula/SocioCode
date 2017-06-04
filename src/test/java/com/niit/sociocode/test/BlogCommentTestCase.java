@@ -1,4 +1,4 @@
-package com.niit.test;
+package com.niit.sociocode.test;
 
 import static org.junit.Assert.*;
 
@@ -35,7 +35,7 @@ public class BlogCommentTestCase {
 		blogComment.setBlogCommentId(1090);
 		blogComment.setBlogId(1010);
 		blogComment.setBlogComment("Test");
-		blogComment.setCommentDate(new Date());
+		blogComment.setBlogCommentDate(new Date());
 		blogComment.setUserId(2020);
 		blogComment.setUsername("Rakesh");
 		

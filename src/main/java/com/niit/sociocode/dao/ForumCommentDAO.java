@@ -12,8 +12,8 @@ public boolean insertForumComment(ForumComment forumComment);
 	
 	public List<ForumComment> list();
 	
-	public boolean deleteForumComment(String id);
+	public boolean deleteForumComment(int id);
 	
-	public Forum getForumCommentById(String id);
+	public ForumComment getForumCommentById(int id);
 
 }

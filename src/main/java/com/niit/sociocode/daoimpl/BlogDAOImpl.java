@@ -28,18 +28,19 @@ public class BlogDAOImpl implements BlogDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+
 		}
 		return true;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Blog> list() {
 		return sessionFactory.getCurrentSession().createQuery("from Blog").list();
+
 	}
 
-	public boolean deleteBlog(String id) {
+	public boolean deleteBlog(int id) {
 		try {
-			sessionFactory.getCurrentSession().delete(id);
+			sessionFactory.getCurrentSession().delete(getBlogById(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -47,9 +48,7 @@ public class BlogDAOImpl implements BlogDAO {
 		return true;
 	}
 
-	public Blog getBlogById(String id) {
-
+	public Blog getBlogById(int id) {
 		return (Blog) sessionFactory.getCurrentSession().get(Blog.class, id);
 	}
-
 }

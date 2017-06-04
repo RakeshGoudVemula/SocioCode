@@ -8,23 +8,44 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+@Table
 @Entity
 @Component
-@Table
 public class Blog {
 	@Id
-	int blogid;
+	private int blogId;
+	private String blogName;
+	private String blogContent;
 
-	int userid, likes;
-	
-	String status;
+	private int userId;
 
-	public String getStatus() {
-		return status;
+	private Date createDate;
+
+	private String status;
+	private int likes;
+
+	public int getBlogId() {
+		return blogId;
 	}
 
-	public void setStatus(String string) {
-		this.status = string;
+	public void setBlogId(int blogId) {
+		this.blogId = blogId;
+	}
+
+	public String getBlogName() {
+		return blogName;
+	}
+
+	public void setBlogName(String blogName) {
+		this.blogName = blogName;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public Date getCreateDate() {
@@ -35,24 +56,12 @@ public class Blog {
 		this.createDate = createDate;
 	}
 
-	private Date createDate;
-
-	String blogname, blogcontent;
-
-	public int getBlogid() {
-		return blogid;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setBlogid(int blogid) {
-		this.blogid = blogid;
-	}
-
-	public int getUserid() {
-		return userid;
-	}
-
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public int getLikes() {
@@ -63,20 +72,12 @@ public class Blog {
 		this.likes = likes;
 	}
 
-	public String getBlogname() {
-		return blogname;
+	public String getBlogContent() {
+		return blogContent;
 	}
 
-	public void setBlogname(String blogname) {
-		this.blogname = blogname;
-	}
-
-	public String getBlogcontent() {
-		return blogcontent;
-	}
-
-	public void setBlogcontent(String blogcontent) {
-		this.blogcontent = blogcontent;
+	public void setBlogContent(String blogContent) {
+		this.blogContent = blogContent;
 	}
 
 }

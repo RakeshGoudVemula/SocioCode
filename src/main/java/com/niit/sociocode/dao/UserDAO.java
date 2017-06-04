@@ -10,8 +10,8 @@ public boolean insertUser(User user);
 	
 	public List<User> list();
 	
-	public boolean deleteUser(String id);
+	public boolean deleteUser(int id);
 	
-	public User getUserById(String id);
+	public User getUserById(int id);
 
 }

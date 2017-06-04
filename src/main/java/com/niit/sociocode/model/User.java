@@ -6,9 +6,9 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Entity
 @Component
-@Table
+@Entity
+@Table(name="USERTABLE")
 public class User 
 {
 	@Id

@@ -11,8 +11,8 @@ public interface BlogDAO
 	
 	public List<Blog> list();
 	
-	public boolean deleteBlog(String id);
+	public boolean deleteBlog(int id);
 	
-	public Blog getBlogById(String id);
+	public Blog getBlogById(int id);
 
 }

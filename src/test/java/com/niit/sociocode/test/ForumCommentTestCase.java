@@ -1,4 +1,4 @@
-package com.niit.test;
+package com.niit.sociocode.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,7 +34,7 @@ public class ForumCommentTestCase {
 		forumComment.setForumCommentId(1090);
 		forumComment.setForumId(1010);
 		forumComment.setForumComment("Test");
-		forumComment.setCommentDate(new Date());
+		forumComment.setForumCommentDate(new Date());
 		forumComment.setUserId(2020);
 		forumComment.setUsername("Rakesh");
 		

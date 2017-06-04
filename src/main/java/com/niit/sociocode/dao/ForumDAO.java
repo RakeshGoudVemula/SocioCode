@@ -10,8 +10,8 @@ public interface ForumDAO {
 	
 	public List<Forum> list();
 	
-	public boolean deleteForum(String id);
+	public boolean deleteForum(int id);
 	
-	public Forum getForumById(String id);
+	public Forum getForumById(int id);
 
 }

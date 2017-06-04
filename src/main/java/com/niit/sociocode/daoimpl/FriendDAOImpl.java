@@ -32,14 +32,13 @@ public class FriendDAOImpl implements FriendDAO {
 		return true;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Friend> list() {
 		return sessionFactory.getCurrentSession().createQuery("from Friend").list();
 	}
 
-	public boolean deleteFriend(String id) {
+	public boolean deleteFriend(int id) {
 		try {
-			sessionFactory.getCurrentSession().delete(id);
+			sessionFactory.getCurrentSession().delete(getFriendById(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -47,8 +46,7 @@ public class FriendDAOImpl implements FriendDAO {
 		return true;
 	}
 
-	public Friend getFriendById(String id) {
-
+	public Friend getFriendById(int id) {
 		return (Friend) sessionFactory.getCurrentSession().get(Friend.class, id);
 	}
 

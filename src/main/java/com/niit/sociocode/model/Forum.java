@@ -8,8 +8,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Entity
 @Component
+@Entity
 @Table
 public class Forum {
 	@Id
@@ -18,6 +18,8 @@ public class Forum {
 	private int userId;
 	private Date createDate;
 	private String status;
+
+	private String forumContent;
 
 	public int getForumId() {
 		return forumId;
@@ -57,6 +59,14 @@ public class Forum {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getForumContent() {
+		return forumContent;
+	}
+
+	public void setForumContent(String forumContent) {
+		this.forumContent = forumContent;
 	}
 
 }

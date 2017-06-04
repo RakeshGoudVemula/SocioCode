@@ -12,9 +12,9 @@ public interface JobDAO
 	
 	public List<Job> list();
 	
-	public boolean deleteJob(String id);
+	public boolean deleteJob(int id);
 	
-	public Job getJobById(String id);
+	public Job getJobById(int id);
 
 
 

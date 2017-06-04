@@ -32,14 +32,14 @@ public class JobDAOImpl implements JobDAO {
 		return true;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Job> list() {
 		return sessionFactory.getCurrentSession().createQuery("from Job").list();
+
 	}
 
-	public boolean deleteJob(String id) {
+	public boolean deleteJob(int id) {
 		try {
-			sessionFactory.getCurrentSession().delete(id);
+			sessionFactory.getCurrentSession().delete(getJobById(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -47,8 +47,7 @@ public class JobDAOImpl implements JobDAO {
 		return true;
 	}
 
-	public Job getJobById(String id) {
-
+	public Job getJobById(int id) {
 		return (Job) sessionFactory.getCurrentSession().get(Job.class, id);
 	}
 

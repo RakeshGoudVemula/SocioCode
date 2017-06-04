@@ -17,42 +17,50 @@ public class ForumDAOImpl implements ForumDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
-	public ForumDAOImpl(SessionFactory sessionFactory) {
+	
+	public ForumDAOImpl(SessionFactory sessionFactory)
+	{
 		this.sessionFactory = sessionFactory;
+		
 	}
-
+	
 	public boolean insertForum(Forum forum) {
-
-		try {
+		try{
 			sessionFactory.getCurrentSession().saveOrUpdate(forum);
-		} catch (Exception e) {
+		}
+		catch(Exception e){
 			e.printStackTrace();
 			return false;
 		}
 		return true;
-
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public List<Forum> list() {
-		// TODO Auto-generated method stub
+		
 		return sessionFactory.getCurrentSession().createQuery("from Forum").list();
+		
 	}
 
-	public boolean deleteForum(String id) {
-		try {
-			sessionFactory.getCurrentSession().delete(id);
-		} catch (Exception e) {
+	
+	public boolean deleteForum(int id) {
+		try{
+			sessionFactory.getCurrentSession().delete(getForumById(id));
+		}
+		catch(Exception e){
 			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
 
-	public Forum getForumById(String id) {
-		// TODO Auto-generated method stub
+
+	public Forum getForumById(int id) {
+		
 		return (Forum) sessionFactory.getCurrentSession().get(Forum.class, id);
+		
 	}
 
+	
+	
 }

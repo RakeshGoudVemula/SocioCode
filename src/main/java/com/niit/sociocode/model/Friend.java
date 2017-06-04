@@ -6,14 +6,17 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Entity
 @Component
+@Entity
 @Table
-public class Friend 
-{
-	@Id
+public class Friend {
+
 	private int userId;
-    public int getUserId() {
+	@Id
+	private int friendId;
+	private String status;
+	
+	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
@@ -31,8 +34,6 @@ public class Friend
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	private int friendId;
-    private String status;
-
-
+	
+	
 }

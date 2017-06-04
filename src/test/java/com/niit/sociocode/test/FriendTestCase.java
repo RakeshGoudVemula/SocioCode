@@ -1,4 +1,4 @@
-package com.niit.test;
+package com.niit.sociocode.test;
 
 import static org.junit.Assert.*;
 

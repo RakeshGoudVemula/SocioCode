@@ -21,7 +21,7 @@ public class BlogController
 	@Autowired
 	BlogDAO blogDAO;
 	@RequestMapping(value="/getBlogs",method=RequestMethod.GET)
-	public ResponseEntity<List<Blog>> getAllBlogs()
+	public ResponseEntity<List<Blog>> list()
 	{
 		List<Blog> listblogs=blogDAO.list();
 		return new ResponseEntity<List<Blog>>(listblogs, HttpStatus.OK);
@@ -33,29 +33,31 @@ public class BlogController
 	{	
 		blog.setCreateDate(new Date());
 		blog.setLikes(0);
-		blog.setUserid(1002);
+		blog.setUserId(1002);
 		blog.setStatus("NA");
-		
 		blogDAO.insertBlog(blog);
 		
 		return new ResponseEntity<String>("Successfully Inserted",HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/deleteBlog{blogid}",method=RequestMethod.DELETE)
-	public ResponseEntity<String> deleteBlog(@PathVariable("blogid") int blogid)
+	@RequestMapping(value="/deleteBlog/{blogId}",method=RequestMethod.DELETE)
+	public ResponseEntity<String> deleteBlog(@PathVariable("blogId") int blogId)
 	{
+		
+		blogDAO.deleteBlog(blogId);
+		
 		return	new ResponseEntity<String>("Deleted Blog Successfully",HttpStatus.OK);
 	}
-	/*@RequestMapping(value="/updateBlog{blogid}",method=RequestMethod.DELETE)
-	public ResponseEntity<Blog> updateBlog(@PathVariable("blogid") int blogid,@RequestBody Blog blog)
+	@RequestMapping(value="/updateBlog/{blogId}",method=RequestMethod.PUT)
+	public ResponseEntity<Blog> updateBlog(@PathVariable("blogId") int blogId,@RequestBody Blog blog)
 	{
 
-		Blog curr_blog=blogDAO.getBlogById(id);
-		blog.setBlogcontent(blog.getBlogcontent());
+		Blog curr_blog=blogDAO.getBlogById(blogId);
+		blog.setBlogContent(blog.getBlogContent());
 		blogDAO.insertBlog(curr_blog);
 		return new ResponseEntity<Blog>(curr_blog,HttpStatus.OK);
 		
-	}*/
+	}
 	
 
 }
