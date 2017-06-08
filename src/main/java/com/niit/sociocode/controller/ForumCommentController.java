@@ -38,7 +38,7 @@ public class ForumCommentController {
 	public ResponseEntity<String> addForumComment(@RequestBody ForumComment forumComment) {
 		forumComment.setForumId(201);
 		forumComment.setForumCommentDate(new Date());
-		forumComment.setUsername("mani");
+		forumComment.setUsername("rakesh");
 		forumComment.setUserId(102);
 		forumCommentDAO.insertForumComment(forumComment);
 		return new ResponseEntity<String>("Successfully inserted", HttpStatus.OK);

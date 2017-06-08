@@ -57,14 +57,13 @@ public class UserController {
 
 	// update the user
 
-	
-	  /*@RequestMapping(value = "/updateUser/{userId}", method =
+	  @RequestMapping(value = "/updateUser/{userId}", method =
 	  RequestMethod.PUT) public ResponseEntity<User>
 	  updateUser(@PathVariable("userId") int userId, @RequestBody User user) {
 	  User curr_user = userDAO.getUserById(userId);
-	  curr_user.setUserContent(user.getUserContent());
+	  curr_user.setUserId(user.getUserId());
 	  userDAO.insertUser(curr_user); return new ResponseEntity<User>(curr_user,
 	  HttpStatus.OK); }
 	 
-*/
+
 }

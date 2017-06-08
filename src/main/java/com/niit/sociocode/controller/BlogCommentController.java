@@ -56,7 +56,7 @@ public class BlogCommentController {
 
 	// update blogComment
 
-	@RequestMapping(value = "/updateBlog/{blogCommentId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/updateBlogComment/{blogCommentId}", method = RequestMethod.PUT)
 	public ResponseEntity<BlogComment> updateBlog(@PathVariable("blogCommentId") int blogCommentId, @RequestBody BlogComment blogComment) {
 		BlogComment curr_blogcomment = blogCommentDAO.getBlogCommentById(blogCommentId);
 		curr_blogcomment.setBlogComment(blogComment.getBlogComment());
